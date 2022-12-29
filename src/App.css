@@ -29,7 +29,6 @@ li{
   padding: 10px;
   height: 120px;
   word-wrap: break-word;
-  overflow: scroll-y;
   margin: 0 20px 20px 0;
 }
 
