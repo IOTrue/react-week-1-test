@@ -1,10 +1,35 @@
 .App {
   text-align: center;
+  padding-top: 50px;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.input-title{
+  margin-right: 20px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+.todo-ul{
+  margin-top: 50px;
+  display: flex;
+  width: 95%;
+  flex-wrap: wrap;
+}
+
+li{
+  width: 10%;
+  list-style: none;
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  padding: 10px;
+  height: 120px;
+  overflow: scroll-y;
+  margin: 0 20px 20px 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {

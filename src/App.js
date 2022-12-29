@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
+
 function App() {
+
+  const [lists, setLists] = useState([
+    {id: 1, title: "react를 배워봅시다"} //기본 리스트
+  ])
+
+  const [title, setTitle] = useState('')
+
+  const addListHnadler = (e)=>{
+    const newList = {
+      id: lists.length+1,
+      title: title
+    }
+    e.preventDefault() //화면 리렌더링 방지
+    setLists([...lists, newList])
+    setTitle('') //인풋 초기화
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form action="#" onSubmit={addListHnadler}>
+        <input type="text" className="input-title" value={title} onChange={(e) => setTitle(e.target.value)} required/>
+        <button>추가하기</button>
+      </form>
+      <h1>Todo List</h1>
+      <ul className="todo-ul">
+      {lists.map((list)=>{
+        return(
+          <li key={list.id}>{list.title}</li>
+        )
+      })}
+      </ul>
     </div>
   );
 }
